@@ -1,7 +1,8 @@
+import { Icon } from "@iconify/react/dist/iconify";
 export const BtnVolver = () => {
   return (
-    <div className="h-screen bg-amber-300 text-black">
-      <span>BtnVolver</span>
+    <div className="absolute top-4 left-4 bg-white text-black hover:bg-[#f2f2f2] p-3 rounded-full shadow-lg cursor-pointer">
+      <Icon icon="noto-v1:left-arrow" width="24" height="24" />
     </div>
   );
 };
