@@ -1,9 +1,10 @@
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 export const CardList = () => {
   const temasTeoria = [
     { title: "useEffect", to: "/useeffect" },
-    { title: "imagenes" },
+    { title: "imagenes", to: "/imagenes" },
   ];
   return (
     <div className="group flex flex-col gap-4">
