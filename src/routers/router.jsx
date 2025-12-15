@@ -3,6 +3,7 @@ import { Home } from "../components/pages/Home";
 import { Login } from "../components/pages/Login";
 import { Page404 } from "../components/pages/Page404";
 import { UseEffectPage } from "../components/pages/UseEffectPage";
+import { ImagenesPage } from "../components/pages/ImagenesPage";
 
 export const MyRoutes = () => (
   // General
@@ -15,6 +16,7 @@ export const MyRoutes = () => (
       <Route path="/Login" element={<Login />} />
       {/* Ruta del UseEffectPage */}
       <Route path="/useeffect" element={<UseEffectPage />} />
+      <Route path="/imagenes" element={<ImagenesPage />} />
       {/* Ruta para página no encontrada */}
       <Route path="*" element={<Page404 />} />
     </Routes>
