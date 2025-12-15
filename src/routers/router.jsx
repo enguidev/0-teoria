@@ -16,6 +16,7 @@ export const MyRoutes = () => (
       <Route path="/Login" element={<Login />} />
       {/* Ruta del UseEffectPage */}
       <Route path="/useeffect" element={<UseEffectPage />} />
+      {/* Ruta de ImagenesPage */}
       <Route path="/imagenes" element={<ImagenesPage />} />
       {/* Ruta para página no encontrada */}
       <Route path="*" element={<Page404 />} />
