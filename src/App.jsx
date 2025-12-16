@@ -6,27 +6,25 @@
 // import { Perfil } from "./components/Perfil";
 // import { Saludo } from "./components/Saludo";
 // import { Boton } from "./components/Boton";
-import { Alerta } from "./components/Alerta";
-import imagenCheck from "./assets/check.svg";
+// import { Alerta } from "./components/Alerta";
+// import imagenCheck from "./assets/check.svg";
+import { Caja } from "./components/Caja";
 function App() {
-  // Creamos componentes/elementos que pasaremos como props
-  const iconoAdvertencia = <span style={{ fontSize: "24px" }}>⚠️</span>;
-  const iconoError = <span style={{ color: "red" }}>❌</span>;
   return (
     // <MyRoutes/>
 
     <div>
-      {/* Pasamos elementos JSX como props */}
-      <Alerta icono={iconoAdvertencia} mensaje="Advertencia importante" />
+      {/* Pasamos una clase CSS adicional */}
+      <Caja className="destacada">Contenido destacado</Caja>
+      {/* El div resultante tendrá: className="caja destacada" */}
 
-      {/* Pasamos JSX inline */}
-      <Alerta
-        icono={<img src={imagenCheck} alt="OK" />}
-        mensaje="Operación exitosa"
-      />
+      {/* Otra caja con clase diferente */}
+      <Caja className="borde-rojo">Contenido con borde rojo</Caja>
+      {/* El div resultante tendrá: className="caja borde-rojo" */}
 
-      {/* Otro ejemplo con icono diferente */}
-      <Alerta icono={iconoError} mensaje="Error al procesar" />
+      {/* Sin clase adicional */}
+      <Caja className="">Caja normal</Caja>
+      {/* El div resultante tendrá: className="caja " */}
     </div>
   );
 }
