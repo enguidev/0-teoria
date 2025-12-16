@@ -1,7 +1,7 @@
 // import { MyRoutes } from "./routers/router";
 // import { ComponenteHijo } from "./components/ComponenteHijo";
+// import { BotonAccion } from "./components/BotonAccion.jsx";
 import { ItemLista } from "./components/ItemLista";
-import { BotonAccion } from "./components/BotonAccion.jsx";
 function App() {
   // Función que recibe un parámetro 'id'
   const eliminarItem = (id) => {
