@@ -1,25 +1,30 @@
 // import { MyRoutes } from "./routers/router";
-import { ComponenteHijo } from "./components/ComponenteHijo";
+// import { ComponenteHijo } from "./components/ComponenteHijo";
+import { BotonAccion } from "./components/BotonAccion.jsx";
 function App() {
-  // Creamos un objeto con los datos del usuario
-  const datosUsuario = {
-    nombre: "María García",
-    edad: 28,
-    email: "maria@example.com",
+  // Definimos la función que queremos ejecutar cuando se haga clic
+  const manejarClic = () => {
+    alert("¡Botón clicado!");
+  };
+
+  // Otra función diferente
+  const saludar = () => {
+    console.log("¡Hola desde el botón!");
   };
   return (
     // <MyRoutes/>
 
     <div>
-      <ComponenteHijo
-        // Pasamos el objeto completo como prop
-        usuario={datosUsuario}
-        // También podemos crear el objeto inline
-        usuario2={{
-          nombre: "Juan Pérez",
-          edad: 35,
-          email: "juan@example.com",
-        }}
+      {/* Pasamos la función SIN ejecutarla (sin paréntesis) */}
+      <BotonAccion onClic={manejarClic} etiqueta="Presionar" />
+
+      {/* Otro botón con diferente función */}
+      <BotonAccion onClic={saludar} etiqueta="Saludar" />
+
+      {/* También podemos pasar una función anónima inline */}
+      <BotonAccion
+        onClic={() => alert("Función inline")}
+        etiqueta="Click aquí"
       />
     </div>
   );
