@@ -1,11 +1,11 @@
 // import { MyRoutes } from "./routers/router";
 import { ComponenteHijo } from "./components/ComponenteHijo";
 function App() {
-  const cadena = "Esto es un texto pasado por JS";
+  const numero = 25;
   return (
     // <MyRoutes/>
 
-    <ComponenteHijo texto={cadena} texto2= "Este es un texto hardcodeado" />
+    <ComponenteHijo digito={numero} digito2= {47} digito3= {5 + 10} digito4= {numero + 5}/>
   );
 }
 export default App;
