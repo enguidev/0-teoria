@@ -5,31 +5,28 @@
 // import { Layout } from "./components/Layout";
 // import { Perfil } from "./components/Perfil";
 // import { Saludo } from "./components/Saludo";
-import { Boton } from "./components/Boton";
+// import { Boton } from "./components/Boton";
+import { Alerta } from "./components/Alerta";
+import imagenCheck from "./assets/check.svg";
 function App() {
-  const manejarClick = () => console.log("Click en botón");
+  // Creamos componentes/elementos que pasaremos como props
+  const iconoAdvertencia = <span style={{ fontSize: "24px" }}>⚠️</span>;
+  const iconoError = <span style={{ color: "red" }}>❌</span>;
   return (
     // <MyRoutes/>
 
     <div>
-      {/* Pasamos props específicas y props HTML nativas */}
-      <Boton
-        texto="Enviar" // Prop específica
-        tipo="primary" // Prop específica
-        onClick={manejarClick} // Se pasa a otrasProps
-        disabled={false} // Se pasa a otrasProps
-        id="btn-enviar" // Se pasa a otrasProps
-        data-test="boton-test" // Se pasa a otrasProps
-      />
-      {/* El botón final tendrá TODAS estas props aplicadas */}
+      {/* Pasamos elementos JSX como props */}
+      <Alerta icono={iconoAdvertencia} mensaje="Advertencia importante" />
 
-      {/* Otro ejemplo con diferentes props */}
-      <Boton
-        texto="Cancelar"
-        tipo="secondary"
-        style={{ marginTop: "10px" }} // Se pasa a otrasProps
-        title="Cancelar acción" // Se pasa a otrasProps
+      {/* Pasamos JSX inline */}
+      <Alerta
+        icono={<img src={imagenCheck} alt="OK" />}
+        mensaje="Operación exitosa"
       />
+
+      {/* Otro ejemplo con icono diferente */}
+      <Alerta icono={iconoError} mensaje="Error al procesar" />
     </div>
   );
 }
