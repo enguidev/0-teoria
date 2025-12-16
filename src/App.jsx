@@ -4,27 +4,32 @@
 // import { ItemLista } from "./components/ItemLista";
 // import { Layout } from "./components/Layout";
 // import { Perfil } from "./components/Perfil";
-import { Saludo } from "./components/Saludo";
+// import { Saludo } from "./components/Saludo";
+import { Boton } from "./components/Boton";
 function App() {
+  const manejarClick = () => console.log("Click en botón");
   return (
     // <MyRoutes/>
 
     <div>
-      {/* Sin pasar props: usa todos los valores por defecto */}
-      <Saludo />
-      {/* Resultado: "Hola, Invitado!" */}
+      {/* Pasamos props específicas y props HTML nativas */}
+      <Boton
+        texto="Enviar" // Prop específica
+        tipo="primary" // Prop específica
+        onClick={manejarClick} // Se pasa a otrasProps
+        disabled={false} // Se pasa a otrasProps
+        id="btn-enviar" // Se pasa a otrasProps
+        data-test="boton-test" // Se pasa a otrasProps
+      />
+      {/* El botón final tendrá TODAS estas props aplicadas */}
 
-      {/* Pasando solo el nombre: usa el idioma por defecto */}
-      <Saludo nombre="Ana" />
-      {/* Resultado: "Hola, Ana!" */}
-
-      {/* Pasando ambas props: no usa ningún valor por defecto */}
-      <Saludo nombre="John" idioma="en" />
-      {/* Resultado: "Hello, John!" */}
-
-      {/* Solo cambiando el idioma */}
-      <Saludo idioma="fr" />
-      {/* Resultado: "Bonjour, Invitado!" */}
+      {/* Otro ejemplo con diferentes props */}
+      <Boton
+        texto="Cancelar"
+        tipo="secondary"
+        style={{ marginTop: "10px" }} // Se pasa a otrasProps
+        title="Cancelar acción" // Se pasa a otrasProps
+      />
     </div>
   );
 }
