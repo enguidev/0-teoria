@@ -1,11 +1,15 @@
 // import { MyRoutes } from "./routers/router";
 import { ComponenteHijo } from "./components/ComponenteHijo";
 function App() {
-  const numero = 25;
+  const isApproved = false;
   return (
     // <MyRoutes/>
 
-    <ComponenteHijo digito={numero} digito2= {47} digito3= {5 + 10} digito4= {numero + 5}/>
+    <ComponenteHijo
+      cargado={false}
+      aprobado={isApproved}
+      terminado // Esto sería true
+    />
   );
 }
 export default App;
