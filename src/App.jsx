@@ -8,23 +8,36 @@
 // import { Boton } from "./components/Boton";
 // import { Alerta } from "./components/Alerta";
 // import imagenCheck from "./assets/check.svg";
-import { Caja } from "./components/Caja";
+// import { Caja } from "./components/Caja";
+import { Etiqueta } from "./components/Etiqueta";
 function App() {
+  // Definimos objetos con estilos CSS (camelCase en vez de kebab-case)
+  const estiloDestacado = {
+    color: "red",
+    fontSize: "20px",
+    fontWeight: "bold",
+    backgroundColor: "yellow",
+  };
+
+  const estiloNormal = {
+    color: "blue",
+    fontSize: "14px",
+  };
+
   return (
-    // <MyRoutes/>
-
     <div>
-      {/* Pasamos una clase CSS adicional */}
-      <Caja className="destacada">Contenido destacado</Caja>
-      {/* El div resultante tendrá: className="caja destacada" */}
+      {/* Pasamos el objeto de estilos como prop */}
+      <Etiqueta estilo={estiloDestacado} texto="Texto importante" />
 
-      {/* Otra caja con clase diferente */}
-      <Caja className="borde-rojo">Contenido con borde rojo</Caja>
-      {/* El div resultante tendrá: className="caja borde-rojo" */}
+      {/* Pasamos estilos inline directamente */}
+      <Etiqueta
+        estilo={{ color: "green", fontSize: "16px" }}
+        texto="Otro texto"
+      />
+      {/* Nota: dobles llaves {{ }} porque es un objeto dentro de JSX */}
 
-      {/* Sin clase adicional */}
-      <Caja className="">Caja normal</Caja>
-      {/* El div resultante tendrá: className="caja " */}
+      {/* Con el estilo normal */}
+      <Etiqueta estilo={estiloNormal} texto="Texto normal" />
     </div>
   );
 }
