@@ -12,37 +12,24 @@
 // import { Etiqueta } from "./components/Etiqueta";
 // import { Mensaje } from "./components/Mensaje";
 // import { ListaConRender } from "./components/ListaConRender";
-import { Contenedor } from "./components/Contenedor";
-// Definimos componentes que usaremos como props
-const Header = () => <header>🏠 Cabecera de la página</header>;
-const Footer = () => <footer>© 2025 - Pie de página</footer>;
-const HeaderAlternativo = () => (
-  <header style={{ backgroundColor: "blue" }}>Otra cabecera</header>
-);
+// import { Contenedor } from "./components/Contenedor";
+// import { Contenedor } from "./components/Contenedor";
+import { Componente1 } from "./components/Componente1";
+// ✅ Importamos el Context desde el archivo de contexts
+import { TemaContext } from "./contexts/TemaContext";
+
 function App() {
+  const tema = {
+    color: "azul",
+    fuente: "Arial",
+    tamano: "16px",
+  };
+
   return (
-    <div>
-      {/* Pasamos componentes como props (sin instanciar, sin <>) */}
-      <Contenedor
-        ComponenteHeader={Header}
-        ComponenteFooter={Footer}
-        contenido={<p>Este es el contenido principal</p>}
-      />
-
-      {/* Mismo componente con diferentes Headers/Footers */}
-      <Contenedor
-        ComponenteHeader={HeaderAlternativo}
-        ComponenteFooter={Footer}
-        contenido={<article>Artículo completo</article>}
-      />
-
-      {/* También podemos pasar componentes inline */}
-      <Contenedor
-        ComponenteHeader={() => <header>Header inline</header>}
-        ComponenteFooter={() => <footer>Footer inline</footer>}
-        contenido={<div>Contenido diferente</div>}
-      />
-    </div>
+    <TemaContext.Provider value={tema}>
+      <Componente1 />
+    </TemaContext.Provider>
   );
 }
+
 export default App;
