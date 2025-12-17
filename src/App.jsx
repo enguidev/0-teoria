@@ -14,21 +14,47 @@
 // import { ListaConRender } from "./components/ListaConRender";
 // import { Contenedor } from "./components/Contenedor";
 // import { Contenedor } from "./components/Contenedor";
-import { Componente1 } from "./components/Componente1";
+// import { Componente1 } from "./components/Componente1";
 // ✅ Importamos el Context desde el archivo de contexts
-import { TemaContext } from "./contexts/TemaContext";
+// import { TemaContext } from "./contexts/TemaContext";
+import { useRef } from "react";
+import { InputPersonalizado } from "./components/InputPersonalizado";
 
 function App() {
-  const tema = {
-    color: "azul",
-    fuente: "Arial",
-    tamano: "16px",
+  // Creamos una ref que apuntará al input
+  const inputRef = useRef();
+
+  // Función que usa la ref para controlar el input
+  const enfocarInput = () => {
+    // .current accede al elemento DOM real
+    // .focus() es un método nativo del DOM
+    inputRef.current.focus();
+  };
+
+  const limpiarInput = () => {
+    // También podemos cambiar el valor
+    inputRef.current.value = "";
+  };
+
+  const obtenerValor = () => {
+    // O leer el valor directamente del DOM
+    alert(`Valor: ${inputRef.current.value}`);
   };
 
   return (
-    <TemaContext.Provider value={tema}>
-      <Componente1 />
-    </TemaContext.Provider>
+    <div>
+      {/* Pasamos la ref al componente personalizado */}
+      <InputPersonalizado
+        ref={inputRef} // Pasamos la ref
+        placeholder="Escribe aquí" // Props adicionales
+        type="text"
+      />
+
+      {/* Botones que controlan el input mediante la ref */}
+      <button onClick={enfocarInput}>Enfocar input</button>
+      <button onClick={limpiarInput}>Limpiar</button>
+      <button onClick={obtenerValor}>Obtener valor</button>
+    </div>
   );
 }
 
