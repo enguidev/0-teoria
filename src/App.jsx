@@ -9,35 +9,25 @@
 // import { Alerta } from "./components/Alerta";
 // import imagenCheck from "./assets/check.svg";
 // import { Caja } from "./components/Caja";
-import { Etiqueta } from "./components/Etiqueta";
+// import { Etiqueta } from "./components/Etiqueta";
+import { Mensaje } from "./components/Mensaje";
 function App() {
-  // Definimos objetos con estilos CSS (camelCase en vez de kebab-case)
-  const estiloDestacado = {
-    color: "red",
-    fontSize: "20px",
-    fontWeight: "bold",
-    backgroundColor: "yellow",
-  };
-
-  const estiloNormal = {
-    color: "blue",
-    fontSize: "14px",
-  };
-
   return (
     <div>
-      {/* Pasamos el objeto de estilos como prop */}
-      <Etiqueta estilo={estiloDestacado} texto="Texto importante" />
+      {/* Mensaje con icono */}
+      <Mensaje tipo="exito" texto="Operación exitosa" mostrarIcono={true} />
+      {/* Renderiza: <div class="mensaje-exito"><span>📌</span><p>Operación exitosa</p></div> */}
 
-      {/* Pasamos estilos inline directamente */}
-      <Etiqueta
-        estilo={{ color: "green", fontSize: "16px" }}
-        texto="Otro texto"
-      />
-      {/* Nota: dobles llaves {{ }} porque es un objeto dentro de JSX */}
+      {/* Mensaje sin icono */}
+      <Mensaje tipo="info" texto="Información general" mostrarIcono={false} />
+      {/* Renderiza: <div class="mensaje-info"><p>Información general</p></div> */}
 
-      {/* Con el estilo normal */}
-      <Etiqueta estilo={estiloNormal} texto="Texto normal" />
+      {/* Usando shorthand (equivalente a mostrarIcono={true}) */}
+      <Mensaje tipo="error" texto="Error al procesar" mostrarIcono />
+
+      {/* Sin especificar mostrarIcono (será undefined, que es falsy) */}
+      <Mensaje tipo="advertencia" texto="Advertencia" />
+      {/* No muestra el icono porque mostrarIcono es undefined */}
     </div>
   );
 }
